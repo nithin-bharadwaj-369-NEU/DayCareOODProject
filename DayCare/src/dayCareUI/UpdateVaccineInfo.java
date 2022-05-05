@@ -8,8 +8,17 @@ package dayCareUI;
 import Classes.School;
 import Classes.Student;
 import Classes.Teacher;
+import java.awt.Dimension;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import utility.ClearUtility;
+import utility.Validation;
 
 /**
  *
@@ -26,6 +35,7 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
         instance = School.getInstance();
         Vector<String> studentList = new Vector<>(); 
         for (Student tk : instance.studentlist){
+            System.out.println(tk);
             studentList.add(String.valueOf(tk.getId()));
         }
         studentComboBox.setModel(new DefaultComboBoxModel(studentList));
@@ -52,7 +62,7 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
         Vvaccine1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Vvaccine2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jUpdateVaccineInfo = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -70,10 +80,10 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
 
         jLabel7.setText("Varicella 2nd Dose :");
 
-        jButton1.setText("Update Info");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jUpdateVaccineInfo.setText("Update Info");
+        jUpdateVaccineInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jUpdateVaccineInfoActionPerformed(evt);
             }
         });
 
@@ -95,7 +105,7 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(18, 18, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
+                                    .addComponent(jUpdateVaccineInfo)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtMMR2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(Vvaccine1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,7 +146,7 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(Vvaccine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(jButton1)
+                .addComponent(jUpdateVaccineInfo)
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
@@ -152,16 +162,81 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jUpdateVaccineInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateVaccineInfoActionPerformed
         // TODO add your handling code here:
+        int selectedStudentId = Integer.parseInt(studentComboBox.getSelectedItem().toString());
+        boolean validateMmrVaccine1 = Validation.validateDateOfBirth(txtMMR1.getText());
+        boolean validateMmrVaccine2 = Validation.validateDateOfBirth(txtMMR2.getText());
+        boolean validatevaricella1 = Validation.validateDateOfBirth(Vvaccine1.getText());
+        boolean validatevaricella2 = Validation.validateDateOfBirth(Vvaccine2.getText());
+        boolean validateVaccineInfo = validateMmrVaccine1 && validateMmrVaccine2 && validatevaricella1 && validatevaricella2 ;
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(validateVaccineInfo){
+            List<Student> studentInfo = instance.getStudentlist();
+            for(Student pk : studentInfo){
+                if(pk.getId() == selectedStudentId){
+                    String mmrVacc1 = txtMMR1.getText();
+                    String mmrVacc2 = txtMMR2.getText();
+                    String varicella1 = Vvaccine1.getText();
+                    String varicella2 = Vvaccine2.getText();
+
+                    Date mmrVaccine1 = null;
+                    try {
+                        mmrVaccine1 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc1);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+
+                    Date mmrVaccine2 = null;
+                    try {
+                        mmrVaccine2 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc2);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+
+                    Date varicellaDate1 = null;
+                    try {
+                        varicellaDate1 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella1);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+
+                    Date varicellaDate2 = null;
+                    try {
+                        varicellaDate2 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella2);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+                    pk.setMmrVaccine1stDose(mmrVaccine1);
+                    pk.setMmrVaccine2ndDose(mmrVaccine2);
+                    pk.setVaricella1stDose(varicellaDate1);
+                    pk.setVaricella2ndDose(varicellaDate2);
+                    break;
+                }
+            }
+            
+            JOptionPane.showMessageDialog(this, "Updated Student Vaccine Details Successfully");
+            JTextField[] jk = new JTextField[] {txtMMR1, txtMMR2, 
+                         Vvaccine1, Vvaccine2};
+            ClearUtility.clearTextField(jk);
+        }else{
+            String errorMessage = String.format("Teacher info NOT SAVED!!! \n"
+                    + "MMR 1st Dose valid: %s \n MMR 2nd Dose Valid : %s \n"
+                    + "Varicella 1st Dose Valid : %s\n Varicella 2nd Dose Valid : %s \n"
+                    ,
+                    validateMmrVaccine1, validateMmrVaccine2, validatevaricella1,
+                    validatevaricella2
+            );
+            UIManager.put("OptionPane.minimumSize", new Dimension(300, 300));
+            JOptionPane.showMessageDialog(this, errorMessage);
+        }
+        
+    }//GEN-LAST:event_jUpdateVaccineInfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Vvaccine1;
     private javax.swing.JTextField Vvaccine2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -169,6 +244,7 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jUpdateVaccineInfo;
     private javax.swing.JComboBox<String> studentComboBox;
     private javax.swing.JTextField txtMMR1;
     private javax.swing.JTextField txtMMR2;
