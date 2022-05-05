@@ -27,8 +27,11 @@ public class Student extends Person {
     
     }
     
-    public Student(int id, Date dob, int age, String name, double gpa){
-        super(id, dob, age, name);
+    public Student(int id, Date dob, int age, String name, double gpa,
+            String contactName, String emergencyPhone,
+            Date mmrVacc1, Date mmrVacc2, Date varicella1, Date varicella2){
+        super(id, dob, age, name, contactName, emergencyPhone,
+                mmrVacc1, mmrVacc2, varicella1, varicella2);
         this.gpa = gpa;
     }
     

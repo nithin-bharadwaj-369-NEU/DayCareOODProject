@@ -68,4 +68,9 @@ public class TeacherFactory {
         School.addTeacher(tmpteacher);
         return tmpteacher;
     }
+    
+    public static void addTeacherObject(String fileName, String teacherData) {
+        FileUtil fu =  new FileUtil();
+        fu.fileTeacherWriter(teacherData, fileName);
+    }
 }
