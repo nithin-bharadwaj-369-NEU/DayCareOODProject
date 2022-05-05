@@ -193,17 +193,46 @@ public class LandingPage extends javax.swing.JFrame {
         String studentCsvFile = relativePathToDumpFile.toAbsolutePath().toString();
         List<String> studentData = new ArrayList<String>();
         for (Student student : instance.studentlist) {
-            studentData.add("" + student.getId() + "," + mdyFormat.format(student.getDateOfBirth()) + "," + student.getAge()+ "," + student.getName() + "," + student.getGpa()+ "," + student.getEmergencyName()+ "," + student.getEmergencyPhone()+ "," + mdyFormat.format(student.getMmrVaccine1stDose()) + "," + mdyFormat.format(student.getMmrVaccine2ndDose()) + "," + mdyFormat.format(student.getVaricella1stDose()) + "," + mdyFormat.format(student.getVaricella2ndDose()));
+            String mmr1stDose = "";
+            try{
+                mmr1stDose = mdyFormat.format(student.getMmrVaccine1stDose());
+            }catch(Exception e){
+                
+            }
+            
+            String mmr2ndDose = "";
+            try{
+                mmr2ndDose = mdyFormat.format(student.getMmrVaccine2ndDose());
+            }catch(Exception e){
+                
+            }
+            
+            String varicella1stDose = "";
+            try{
+                varicella1stDose = mdyFormat.format(student.getVaricella1stDose());
+            }catch(Exception e){
+                
+            }
+            
+            String varicella2ndDose = "";
+            try{
+                varicella2ndDose = mdyFormat.format(student.getVaricella2ndDose());
+            }catch(Exception e){
+                
+            }
+            
+
+            studentData.add("" + student.getId() + "," + mdyFormat.format(student.getDateOfBirth()) + "," + student.getAge()+ "," + student.getName() + "," + student.getGpa()+ "," + student.getEmergencyName()+ "," + student.getEmergencyPhone()+ "," + mmr1stDose + "," + mmr2ndDose + "," + varicella1stDose + "," + varicella2ndDose);
         }
         String[] studentDataArr = new String[studentData.size()];
         studentData.toArray(studentDataArr);
         fu.fileWriter(studentDataArr, studentCsvFile);
 
-//        Container frame = jButton1.getParent();
-//            do 
-//                frame = frame.getParent(); 
-//            while (!(frame instanceof JFrame));                                      
-//            ((JFrame) frame).dispose();
+        Container frame = jButton1.getParent();
+            do 
+                frame = frame.getParent(); 
+            while (!(frame instanceof JFrame));                                      
+            ((JFrame) frame).dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
