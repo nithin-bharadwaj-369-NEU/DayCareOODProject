@@ -9,10 +9,13 @@ import static Classes.School.studentlist;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -93,27 +96,78 @@ public class Demo {
             }
         }
         
+        Map<String, List<Student>> studentsPerGroup = 
+                (studentList.stream().collect(groupingBy(Student::getAgeGroup, toList())));
+        
+        List<Student> studentLit = schoolInstance.getStudentlist();
+        
         for(ClassRoom classRoomObj : classRoomList){
             for (Map.Entry entry : classRoomObj.teacherStudentGroup.entrySet()){
+                
+                System.out.println("#### Processing for Teacher : " + entry.getKey());
+
                 System.out.println(entry.getKey());
-                System.out.println(((Teacher) entry.getKey()).getAgeGroupAssigned());
+                String ageGroup = ((Teacher) entry.getKey()).getAgeGroupAssigned();
+                int maxSize = studentRatioRules.get(ageGroup);
+                System.out.println("Max size allowed : " + maxSize);
+                ArrayList<Student> studentTempList = (ArrayList<Student>) studentsPerGroup.get(((Teacher) entry.getKey()).getAgeGroupAssigned());
+                System.out.println(studentTempList);
+                
+                ArrayList<Student> listToAddData = new ArrayList<>(); 
+                int valueTillIterate = 0;
+                if(studentTempList.size() > maxSize ){
+                    valueTillIterate = maxSize;
+                }
+                else{
+                    valueTillIterate = studentTempList.size();
+                }
+                
+                for(int i=0; i < valueTillIterate; i++){
+                    try{
+                        listToAddData.add(studentTempList.get(i));
+                    }catch(Exception e){
+                        break;
+                    }
+                }
+                
+                for(int i=0; i < valueTillIterate; i++){
+                    try{
+                        studentTempList.remove(0);
+                    }catch(Exception e){
+                        break;
+                    }
+                }
+                System.out.println("Removed Elements from Student List");
+                System.out.println(studentTempList);
+                studentsPerGroup.put(ageGroup, studentTempList);
+                System.out.println("**** Adding Below Students to Teacher ***** ");
+                System.out.println(entry.getKey());
+                System.out.println(listToAddData.toString());
+                classRoomObj.teacherStudentGroup.put((Teacher) entry.getKey(), listToAddData);
             } 
         }
         
-
-    }
-    
-    
-    public void createGroups(School instance){
-        
-        Map<String, Integer> studentDistribution = getAgeDistribution(instance.getStudentlist());
-        Map<String, Integer> groupDistribution = this.getGroupsDistribution(studentDistribution);
-        for (Map.Entry entry : groupDistribution.entrySet()) {
-            System.out.println(entry.getKey().toString() +  " : "  + entry.getValue().toString());
+        System.out.println("");
+        System.out.println("");
+        System.out.println("************** Final Summary of the Mapping **************");
+        for(ClassRoom classRoomObj : classRoomList){
+            for (Map.Entry entry : classRoomObj.teacherStudentGroup.entrySet()){
+                System.out.println("Inside To Check if the mapping is present Or not");
+                System.out.println(entry.getKey());
+                System.out.println(entry.getValue());
+            }
         }
-        
+
         
     }
+    
+    static <T> Collection<List<T>> partitionBasedOnSize(List<T> inputList, int size) {
+        final AtomicInteger counter = new AtomicInteger(0);
+        return inputList.stream()
+                    .collect(Collectors.groupingBy(s -> counter.getAndIncrement()/size))
+                    .values();
+    }
+
     
     
     public int getNumberOfClassesToCreate(List<Student> studentList, 
