@@ -8,8 +8,17 @@ package dayCareUI;
 import Classes.School;
 import Classes.Student;
 import Classes.Teacher;
+import java.awt.Dimension;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import utility.ClearUtility;
+import utility.Validation;
 
 /**
  *
@@ -154,7 +163,72 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int selectedStudentId = Integer.parseInt(studentComboBox.getSelectedItem().toString());
+        boolean validateMmrVaccine1 = Validation.validateDateOfBirth(txtMMR1.getText());
+        boolean validateMmrVaccine2 = Validation.validateDateOfBirth(txtMMR2.getText());
+        boolean validatevaricella1 = Validation.validateDateOfBirth(Vvaccine1.getText());
+        boolean validatevaricella2 = Validation.validateDateOfBirth(Vvaccine2.getText());
+        boolean validateVaccineInfo = validateMmrVaccine1 && validateMmrVaccine2 && validatevaricella1 && validatevaricella2 ;
         
+        if(validateVaccineInfo){
+            List<Student> studentInfo = instance.getStudentlist();
+            for(Student pk : studentInfo){
+                if(pk.getId() == selectedStudentId){
+                    String mmrVacc1 = txtMMR1.getText();
+                    String mmrVacc2 = txtMMR2.getText();
+                    String varicella1 = Vvaccine1.getText();
+                    String varicella2 = Vvaccine2.getText();
+
+                    Date mmrVaccine1 = null;
+                    try {
+                        mmrVaccine1 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc1);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+
+                    Date mmrVaccine2 = null;
+                    try {
+                        mmrVaccine2 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc2);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+
+                    Date varicellaDate1 = null;
+                    try {
+                        varicellaDate1 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella1);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+
+                    Date varicellaDate2 = null;
+                    try {
+                        varicellaDate2 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella2);
+                    } catch (Exception e) {
+                        System.err.println("Exception ocurred : " + e);
+                    }
+                    pk.setMmrVaccine1stDose(mmrVaccine1);
+                    pk.setMmrVaccine2ndDose(mmrVaccine2);
+                    pk.setVaricella1stDose(varicellaDate1);
+                    pk.setVaricella2ndDose(varicellaDate2);
+                    break;
+                }
+            }
+            
+            JOptionPane.showMessageDialog(this, "Updated Student Vaccine Details Successfully");
+            JTextField[] jk = new JTextField[] {txtMMR1, txtMMR2, 
+                         Vvaccine1, Vvaccine2};
+            ClearUtility.clearTextField(jk);
+        }else{
+            String errorMessage = String.format("Teacher info NOT SAVED!!! \n"
+                    + "MMR 1st Dose valid: %s \n MMR 2nd Dose Valid : %s \n"
+                    + "Varicella 1st Dose Valid : %s\n Varicella 2nd Dose Valid : %s \n"
+                    ,
+                    validateMmrVaccine1, validateMmrVaccine2, validatevaricella1,
+                    validatevaricella2
+            );
+            UIManager.put("OptionPane.minimumSize", new Dimension(300, 300));
+            JOptionPane.showMessageDialog(this, errorMessage);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
