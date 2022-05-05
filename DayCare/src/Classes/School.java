@@ -30,9 +30,9 @@ public class School {
     }
 
     public void printClassRoominformation( ) {
-        for (ClassRoom C: classrooms) {
-            System.out.print(C.getTeacher().getName());
-        }
+//        for (ClassRoom C: classrooms) {
+//            System.out.print(C.getTeacher().getName());
+//        }
     }
 
     public static void addStudent(Student person){studentlist.add(person);}

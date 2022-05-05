@@ -29,5 +29,8 @@ public class Demo {
         TeacherFactory.getInstance().addObject(teacherCsvFile);
         schoolInstance.viewTeacherInformation();
         
+        System.out.println("*** Creating groups with teachers and stundets **** ");
+        
+        
     }
 }

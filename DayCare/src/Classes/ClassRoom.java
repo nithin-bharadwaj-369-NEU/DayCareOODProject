@@ -7,28 +7,24 @@ package Classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Nithin Bharadwaj
  */
 public class ClassRoom {
+    // Can have maximum of 3 Teachers
+    // Can have maximum of 30 students
     
     private int capacity;
-    private Person teacher;
+//    private List<Teacher> teacherList = new ArrayList<>();
+    private Map<Teacher, List<Student>> teacherStudentGroup;
     private String name;
-    private List<Person> studentList = new ArrayList<>();
+//    private List<Student> studentList = new ArrayList<>();
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public Person getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Person teacher) {
-        this.teacher = teacher;
     }
 
     public String getName() {
@@ -39,22 +35,22 @@ public class ClassRoom {
         this.name = name;
     }
 
-    public List<Person> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Person> studentList) {
-        this.studentList = studentList;
-    }
+//    public List<Student> getStudentList() {
+//        return studentList;
+//    }
+//
+//    public void setStudentList(List<Student> studentList) {
+//        this.studentList = studentList;
+//    }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    public ClassRoom(String name, Teacher headTeacher) {
-        this.name = name;
-        studentList = new ArrayList<>();
-        this.teacher = headTeacher;
-    }
+//    public ClassRoom(String name, Teacher headTeacher) {
+//        this.name = name;
+//        studentList = new ArrayList<>();
+//        this.teacher = headTeacher;
+//    }
     
 }
