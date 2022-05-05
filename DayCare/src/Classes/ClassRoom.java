@@ -20,7 +20,7 @@ public class ClassRoom {
     
     private int capacity;
 //    private List<Teacher> teacherList = new ArrayList<>();
-    private Map<Teacher, List<Student>> teacherStudentGroup;
+    public Map<Teacher, List<Student>> teacherStudentGroup;
     private String name;
 //    private List<Student> studentList = new ArrayList<>();
 

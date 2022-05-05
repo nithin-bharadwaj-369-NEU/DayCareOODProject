@@ -16,6 +16,15 @@ public class Teacher extends Person {
     private int credits;
     private int salary;
     private String annualReview;
+    private String ageGroupAssigned;
+
+    public String getAgeGroupAssigned() {
+        return ageGroupAssigned;
+    }
+
+    public void setAgeGroupAssigned(String ageGroupAssigned) {
+        this.ageGroupAssigned = ageGroupAssigned;
+    }
 
     public String getAnnualReview() {
         return annualReview;

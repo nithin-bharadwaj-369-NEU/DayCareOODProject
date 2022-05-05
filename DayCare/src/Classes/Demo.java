@@ -8,9 +8,11 @@ package Classes;
 import static Classes.School.studentlist;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -55,14 +57,61 @@ public class Demo {
             getClassRooms--;
         }
         System.out.println("*** Created New Classroom Successfully");
+//        this.createGroups(schoolInstance);
+        Map<String, Integer> studentDistribution = getAgeDistribution(schoolInstance.getStudentlist());
+        Map<String, Integer> groupDistribution = this.getGroupsDistribution(studentDistribution);
+        
+        for (Map.Entry entry : groupDistribution.entrySet()) {
+            System.out.println(entry.getKey().toString() +  " : "  + entry.getValue().toString());
+        }
+        
         
         System.out.println("*** Creating Groups for Teachers and Students");
+        List<ClassRoom> classRoomList = schoolInstance.getClassRooms();
+        List<Teacher> teacherNewList = new ArrayList<Teacher>();
+        for(ClassRoom classRoomObj : classRoomList){
+            for ( Teacher teacherObj : teacherList){
+                for (Map.Entry entry : groupDistribution.entrySet()) {
+                    if(Integer.parseInt(entry.getValue().toString()) > 0){
+                        System.out.println(teacherObj.getName());
+                        teacherObj.setAgeGroupAssigned(entry.getKey().toString());
+                        teacherNewList.add(teacherObj);
+                        groupDistribution.put(entry.getKey().toString(),
+                                    Integer.parseInt(entry.getValue().toString()) - 1);
+                        System.out.println(entry.getKey().toString() +  " has value "  + entry.getValue().toString());
+                        break;
+                    }               
+                    
+                } 
+                classRoomObj.teacherStudentGroup.put(teacherObj, new ArrayList<Student>());
+                
+                if (classRoomObj.teacherStudentGroup.size() == 3){
+                    break;
+                }
+                
+            }
+        }
         
+        for(ClassRoom classRoomObj : classRoomList){
+            for (Map.Entry entry : classRoomObj.teacherStudentGroup.entrySet()){
+                System.out.println(entry.getKey());
+                System.out.println(((Teacher) entry.getKey()).getAgeGroupAssigned());
+            } 
+        }
+        
+//        Map<String, List<Student>> groupedStudents = studentList.stream()
+//                .collect(Collectors.groupingBy());
+
     }
     
     
     public void createGroups(School instance){
         
+        Map<String, Integer> studentDistribution = getAgeDistribution(instance.getStudentlist());
+        Map<String, Integer> groupDistribution = this.getGroupsDistribution(studentDistribution);
+        for (Map.Entry entry : groupDistribution.entrySet()) {
+            System.out.println(entry.getKey().toString() +  " : "  + entry.getValue().toString());
+        }
         
         
     }
