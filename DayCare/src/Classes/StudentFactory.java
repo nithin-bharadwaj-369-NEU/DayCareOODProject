@@ -64,7 +64,7 @@ public class StudentFactory {
                 String dateOfBirthStr = values[1];
                 Date dob = null;
                 try{
-                    dob = new SimpleDateFormat("dd-MM-yyyy").parse(dateOfBirthStr);
+                    dob = new SimpleDateFormat("MM-dd-yyyy").parse(dateOfBirthStr);
                 }catch(Exception e){
 //                    System.err.println("Exception ocurred : " + e);
                 }
@@ -78,7 +78,7 @@ public class StudentFactory {
                 Date mmrVacc1 = null;
                 try{
                     String mmrVaccine1 = values[7];
-                    mmrVacc1 = new SimpleDateFormat("dd-MM-yyyy").parse(mmrVaccine1);
+                    mmrVacc1 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVaccine1);
                 }catch(Exception e){
 //                    System.err.println("Exception ocurred : " + e);
                 }
@@ -87,7 +87,7 @@ public class StudentFactory {
                 Date mmrVacc2 = null;
                 try{
                     String mmrVaccine2 = values[8];
-                    mmrVacc2 = new SimpleDateFormat("dd-MM-yyyy").parse(mmrVaccine2);
+                    mmrVacc2 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVaccine2);
                 }catch(Exception e){
 //                    System.err.println("Exception ocurred : " + e);
                 }
@@ -96,7 +96,7 @@ public class StudentFactory {
                 Date varicellaVacc1 = null;
                 try{
                     String varicella1 = values[9];
-                    varicellaVacc1 = new SimpleDateFormat("dd-MM-yyyy").parse(varicella1);
+                    varicellaVacc1 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella1);
                 }catch(Exception e){
 //                    System.err.println("Exception ocurred : " + e);
                 }
@@ -104,7 +104,7 @@ public class StudentFactory {
                 Date varicellaVacc2 = null;
                 try{
                     String varicella2 = values[10];
-                    varicellaVacc2 = new SimpleDateFormat("dd-MM-yyyy").parse(varicella2);
+                    varicellaVacc2 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella2);
                 }catch(Exception e){
 //                    System.err.println("Exception ocurred : " + e);
                 }

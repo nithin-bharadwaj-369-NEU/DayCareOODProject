@@ -48,7 +48,7 @@ public class TeacherFactory {
             String dateOfBirthStr = values[1];
             Date dob = null;
             try{
-                dob = new SimpleDateFormat("dd-MM-yyyy").parse(dateOfBirthStr);
+                dob = new SimpleDateFormat("MM-dd-yyyy").parse(dateOfBirthStr);
             }catch(Exception e){
                 System.err.println("Exception ocurred : " + e);
             }
