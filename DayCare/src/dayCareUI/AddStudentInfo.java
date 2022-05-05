@@ -7,11 +7,17 @@ package dayCareUI;
 
 import Classes.Student;
 import Classes.StudentFactory;
+import java.awt.Dimension;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import utility.ClearUtility;
+import utility.Validation;
 
 /**
  *
@@ -97,7 +103,7 @@ public class AddStudentInfo extends javax.swing.JPanel {
 
         jLabel7.setText("Varicella 2nd Dose :");
 
-        jLabel8.setText("Age");
+        jLabel8.setText("Age :");
 
         jTFAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,9 +117,7 @@ public class AddStudentInfo extends javax.swing.JPanel {
             }
         });
 
-        jLabel9.setText("ID");
-
-        jTFDOB.setText("jTextField1");
+        jLabel9.setText("Student ID :");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,11 +137,9 @@ public class AddStudentInfo extends javax.swing.JPanel {
                                     .addComponent(lbDataOfBirth1)
                                     .addComponent(lbDataOfBirth)
                                     .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel2))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTFAge)
                                     .addComponent(txtGPA)
                                     .addComponent(txtContactName)
                                     .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
@@ -150,13 +152,10 @@ public class AddStudentInfo extends javax.swing.JPanel {
                                 .addComponent(txtMMR1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(49, 49, 49)
-                                        .addComponent(jLabel9)))
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Vvaccine1, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
@@ -164,11 +163,18 @@ public class AddStudentInfo extends javax.swing.JPanel {
                                     .addComponent(Vvaccine2, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                                     .addComponent(jTFID)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFAge, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -204,22 +210,16 @@ public class AddStudentInfo extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTFAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel2)
+                    .addComponent(jTFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTFAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addGap(72, 72, 72))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -247,45 +247,94 @@ public class AddStudentInfo extends javax.swing.JPanel {
 
     private void txtContactNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNameActionPerformed
         // TODO add your handling code here:
-
+        
     }//GEN-LAST:event_txtContactNameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 //        int id, Date dob, int age, String name, double gpa
-        Integer Id = Integer.parseInt(jTFID.getText());
-        String studentName = txtName.getText();
-        Double GPA = Double.parseDouble(txtGPA.getText());
-        Integer Age = Integer.parseInt(jTFAge.getText());
-        String DOB = jTFDOB.getText();
+        boolean validateStudentId = Validation.validateStudentID(jTFID);
+        boolean validateStudentName = Validation.validateName(txtName);
+//        String studentName = txtName.getText();
+        boolean validateStudentGpa = Validation.validateGpa(txtGPA);
+//        Double GPA = Double.parseDouble(txtGPA.getText());
+        boolean validateStudentAge = Validation.validateAge(jTFAge);
+//        Integer Age = Integer.parseInt(jTFAge.getText());
+        String dateOfBirthStudent = jTFDOB.getText();
+        boolean validateDateOfBirth = Validation.validateDateOfBirth(dateOfBirthStudent);
+        boolean validateContactName = Validation.validateName(txtContactName);
+        boolean validateContactPhone = Validation.validatePhoneNumber(txtPhone);
+        
         Date dob = null;
         try {
-            dob = new SimpleDateFormat("MM-dd-yyyy").parse(DOB);
+            dob = new SimpleDateFormat("MM-dd-yyyy").parse(dateOfBirthStudent);
         } catch (Exception e) {
             System.err.println("Exception ocurred : " + e);
         }
-//        System.out.println(Id);
-//        System.out.println(studentName);
-//        System.out.println(GPA);
-//        System.out.println(Age);
-//        System.out.println(DOB);        
-        Student student = StudentFactory.getObject(Id, dob, Age, studentName, GPA);
-        Path relativePathToDumpFile = Paths.get("", "src", "Resources", "Students.csv");
-        String studentCsvFile = relativePathToDumpFile.toAbsolutePath().toString();
-        String pattern = "MM-dd-yyyy";
-        DateFormat df = new SimpleDateFormat(pattern);
-        String dobValue = df.format(student.getDateOfBirth());
-        StringBuilder sb = new StringBuilder();
-        sb.append( Integer.toString(student.getId()));
-        sb.append(",");
-        sb.append(dobValue);
-        sb.append(",");
-        sb.append(Integer.toString(student.getAge()));
-        sb.append(",");
-        sb.append(student.getName());
-        sb.append(",");
-        sb.append(Double.toString(student.getGpa()));
-        StudentFactory.addStudentObject(studentCsvFile, sb.toString());
+        if(validateStudentId && validateStudentName && 
+                validateStudentGpa && validateDateOfBirth && validateContactName
+                && validateContactPhone){
+               System.out.println("Inside IF block for adding student to system");
+            int studentId =  Integer.parseInt(jTFID.getText());
+            int studentAge = Integer.parseInt(jTFAge.getText());
+            String stundentName = txtName.getText();
+            Double stundentGpa = Double.parseDouble(txtGPA.getText());
+            String contactName = txtContactName.getText();
+            String contactPhone = txtPhone.getText();
+            String mmrVacc1 = txtMMR1.getText();
+            String mmrVacc2 = txtMMR2.getText();
+            String varicella1 = Vvaccine1.getText();
+            String varicella2 = Vvaccine2.getText();
+            
+            Date mmrVaccine1 = null;
+            try {
+                mmrVaccine1 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc1);
+            } catch (Exception e) {
+                System.err.println("Exception ocurred : " + e);
+            }
+            
+            Date mmrVaccine2 = null;
+            try {
+                mmrVaccine2 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc2);
+            } catch (Exception e) {
+                System.err.println("Exception ocurred : " + e);
+            }
+            
+            Date varicellaDate1 = null;
+            try {
+                varicellaDate1 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella1);
+            } catch (Exception e) {
+                System.err.println("Exception ocurred : " + e);
+            }
+            
+            Date varicellaDate2 = null;
+            try {
+                varicellaDate2 = new SimpleDateFormat("MM-dd-yyyy").parse(varicella2);
+            } catch (Exception e) {
+                System.err.println("Exception ocurred : " + e);
+            }
+            
+            Student studentObj = StudentFactory.getObject(studentId, dob, 
+                    studentAge, stundentName, stundentGpa, contactName, contactPhone,
+                    mmrVaccine1, mmrVaccine2, varicellaDate1, varicellaDate2
+                    );
+            JOptionPane.showMessageDialog(this, "Added Stundet Details Successfully");
+            JTextField[] jk = new JTextField[] {txtName, txtContactName, txtGPA, txtMMR1, txtMMR2, txtGPA,
+                        txtPhone, jTFID, jTFDOB, jTFAge, Vvaccine1, Vvaccine2};
+            ClearUtility.clearTextField(jk);
+
+        }else {
+            String errorMessage = String.format("Teacher info NOT SAVED!!! \n"
+                    + "Student-ID valid: %s \n Student Name Valid : %s \n"
+                    + "Gpa Valid : %s\n Date Of Birth Valid : %s \n"
+                    + "contactPhoneValidation Valid : %s \n" + "Contact Name Validation : %s \n"
+                    ,
+                    validateStudentId, validateStudentName, validateStudentGpa,
+                    validateDateOfBirth, validateContactPhone, validateContactName
+            );
+            UIManager.put("OptionPane.minimumSize", new Dimension(300, 300));
+            JOptionPane.showMessageDialog(this, errorMessage);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

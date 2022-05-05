@@ -73,6 +73,22 @@ public class Person {
         this.Varicella2ndDose = Varicella2ndDose;
     }
     
+    public Person(int id, Date dateOfBirth, int age, String name,
+            String contactName,String emergencyPhone,
+            Date mmrVacc1, Date mmrVacc2, 
+            Date varicella1, Date varicella2){
+        this.dateOfBirth = dateOfBirth;
+        this.id = id;
+        this.age = age;
+        this.name = name;
+        this.emergencyPhone = emergencyPhone;
+        this.emergencyName = contactName;
+        this.Varicella1stDose = varicella1;
+        this.Varicella2ndDose = varicella2;
+        this.mmrVaccine1stDose = mmrVacc1;
+        this.mmrVaccine2ndDose = mmrVacc2;
+    }
+    
     public Person(int id, Date dateOfBirth, int age, String name){
         this.dateOfBirth = dateOfBirth;
         this.id = id;

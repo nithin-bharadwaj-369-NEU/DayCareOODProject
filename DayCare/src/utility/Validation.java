@@ -35,12 +35,6 @@ public class Validation {
         return true;
     }
     
-    public static boolean validateGpa(JTextField jf){
-        String enteredGPA = jf.getText();
-        
-        return false;
-    }
-    
     public static boolean validateStreetAddress(JTextField jf){
         String address = jf.getText().toString();
         Pattern addressPattern = Pattern.compile("^[:.0-9a-zA-Z\\s,-]+$");
@@ -156,5 +150,34 @@ public class Validation {
             }
         return false;
     }
+    
+    public static boolean validateStudentID(JTextField jf){
+        if (jf.getText().isEmpty()){
+            return false;
+        }
+        String studentId = jf.getText().toString();
+        try{
+            int studentIdInt = Integer.parseInt(studentId); 
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public static boolean validateGpa(JTextField jf){
+        if (jf.getText().isEmpty()){
+            return false;
+        }
+        String enteredGpa = jf.getText().toString();
+        try{
+            Double stundetGpa = Double.parseDouble(enteredGpa); 
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
     
 }

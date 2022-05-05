@@ -233,25 +233,25 @@ public class addTeacher extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Info saved successfully");
             Teacher teacher = TeacherFactory.getObject(id, dob, age, name, credits, salary);
 //            100001,20-12-2021,34,Nithin_TEACHER,3,3000
-            String pattern = "MM-dd-yyyy";
-            DateFormat df = new SimpleDateFormat(pattern);
-            String dobValue = df.format(teacher.getDateOfBirth());
-            StringBuilder sb = new StringBuilder();
-            sb.append(Integer.toString(teacher.getId()));
-            sb.append(",");
-            sb.append(dobValue);
-            sb.append(",");
-            sb.append(Integer.toString(teacher.getAge()));
-            sb.append(",");
-            sb.append(teacher.getName());
-            sb.append(",");
-            sb.append(Integer.toString(teacher.getCredits()));
-            sb.append(",");
-            sb.append(Integer.toString(teacher.getSalary()));
-            Path teacherPathToDumpFile = Paths.get("", "src", "Resources", "Teachers.csv");
-            String teacherCsvFile = teacherPathToDumpFile.toAbsolutePath().toString();
-            TeacherFactory.addTeacherObject(teacherCsvFile, sb.toString());
-
+//            String pattern = "MM-dd-yyyy";
+//            DateFormat df = new SimpleDateFormat(pattern);
+//            String dobValue = df.format(teacher.getDateOfBirth());
+//            StringBuilder sb = new StringBuilder();
+//            sb.append(Integer.toString(teacher.getId()));
+//            sb.append(",");
+//            sb.append(dobValue);
+//            sb.append(",");
+//            sb.append(Integer.toString(teacher.getAge()));
+//            sb.append(",");
+//            sb.append(teacher.getName());
+//            sb.append(",");
+//            sb.append(Integer.toString(teacher.getCredits()));
+//            sb.append(",");
+//            sb.append(Integer.toString(teacher.getSalary()));
+//            Path teacherPathToDumpFile = Paths.get("", "src", "Resources", "Teachers.csv");
+//            String teacherCsvFile = teacherPathToDumpFile.toAbsolutePath().toString();
+//            TeacherFactory.addTeacherObject(teacherCsvFile, sb.toString());
+            JOptionPane.showMessageDialog(this, "Added New Teacher to the System Successfully");
         } else {
             String errorMessage = String.format("Teacher info NOT SAVED!!! \n"
                     + "Name valid: %s \n Date of Birth Valid : %s \n"
