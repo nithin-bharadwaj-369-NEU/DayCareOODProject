@@ -6,6 +6,7 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,11 @@ public class ClassRoom {
     private String name;
 //    private List<Student> studentList = new ArrayList<>();
 
+    public ClassRoom(String name){
+        this.name = name;
+        teacherStudentGroup = new HashMap<Teacher, List<Student>>(); 
+    }
+    
     public int getCapacity() {
         return capacity;
     }
