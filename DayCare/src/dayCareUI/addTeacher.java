@@ -12,7 +12,9 @@ import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
+import utility.ClearUtility;
 import utility.Validation;
 
 /**
@@ -225,6 +227,10 @@ public class addTeacher extends javax.swing.JPanel {
            String phoneNumber = txtPhoneNumber.getText();
            TeacherFactory.getObject(id, dob, age, name, credits, salary);
             JOptionPane.showMessageDialog(this, "Info saved successfully");
+           JTextField[] jk = new JTextField[] {txtName, txtAge, txtCredits, txtDataOfBirth,
+               txtContactName, txtID, txtPhoneNumber, txtWage};
+            ClearUtility.clearTextField(jk);
+            
         }else{
             String errorMessage = String.format("Teacher info NOT SAVED!!! \n"
                     + "Name valid: %s \n Date of Birth Valid : %s \n" +
