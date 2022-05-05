@@ -157,7 +157,8 @@ public class Demo {
                 System.out.println(entry.getValue());
             }
         }
-
+        
+        schoolInstance.classrooms = classRoomList;
         
     }
     

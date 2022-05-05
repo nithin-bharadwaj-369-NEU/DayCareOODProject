@@ -57,6 +57,11 @@ public class TeacherMenu extends javax.swing.JPanel {
         });
 
         btnPendingImmStudents.setText("View Pending Immunization Students");
+        btnPendingImmStudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPendingImmStudentsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,6 +134,12 @@ public class TeacherMenu extends javax.swing.JPanel {
         AddTeacherReview addTeacherObj = new AddTeacherReview();
         teacherSplitPane.setRightComponent(addTeacherObj);
     }//GEN-LAST:event_btnAddAnnualReviewActionPerformed
+
+    private void btnPendingImmStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendingImmStudentsActionPerformed
+        // TODO add your handling code here:
+        PendingImmunitization pendingVaccObj = new PendingImmunitization();
+        teacherSplitPane.setRightComponent(pendingVaccObj);
+    }//GEN-LAST:event_btnPendingImmStudentsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
