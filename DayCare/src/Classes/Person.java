@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class Person {
     

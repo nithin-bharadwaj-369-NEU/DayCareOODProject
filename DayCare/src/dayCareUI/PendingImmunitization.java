@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class PendingImmunitization extends javax.swing.JPanel {
 

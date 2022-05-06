@@ -23,7 +23,7 @@ import utility.FileUtil;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class LandingPage extends javax.swing.JFrame {
 

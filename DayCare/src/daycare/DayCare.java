@@ -7,7 +7,7 @@ package daycare;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class DayCare {
 

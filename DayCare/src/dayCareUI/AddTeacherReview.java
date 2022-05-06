@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class AddTeacherReview extends javax.swing.JPanel {
 

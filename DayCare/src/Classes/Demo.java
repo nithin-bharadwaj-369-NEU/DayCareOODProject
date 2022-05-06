@@ -20,7 +20,7 @@ import static java.util.stream.Collectors.toList;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class Demo {
     

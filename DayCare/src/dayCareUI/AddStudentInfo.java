@@ -18,7 +18,7 @@ import utility.Validation;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class AddStudentInfo extends javax.swing.JPanel {
 

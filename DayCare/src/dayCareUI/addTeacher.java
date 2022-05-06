@@ -19,7 +19,7 @@ import utility.Validation;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class addTeacher extends javax.swing.JPanel {
 

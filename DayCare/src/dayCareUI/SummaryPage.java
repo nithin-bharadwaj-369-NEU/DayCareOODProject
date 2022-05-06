@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class SummaryPage extends javax.swing.JPanel {
 

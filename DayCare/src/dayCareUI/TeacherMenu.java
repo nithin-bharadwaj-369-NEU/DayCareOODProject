@@ -7,7 +7,7 @@ package dayCareUI;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class TeacherMenu extends javax.swing.JPanel {
 

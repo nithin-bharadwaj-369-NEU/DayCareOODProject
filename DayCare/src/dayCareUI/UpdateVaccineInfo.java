@@ -22,7 +22,7 @@ import utility.Validation;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class UpdateVaccineInfo extends javax.swing.JPanel {
 

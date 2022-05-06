@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * 
  */
 public class ClassRoom {
     // Can have maximum of 3 Teachers
