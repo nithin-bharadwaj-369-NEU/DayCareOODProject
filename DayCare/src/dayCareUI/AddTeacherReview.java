@@ -50,6 +50,8 @@ public class AddTeacherReview extends javax.swing.JPanel {
         txtReview = new javax.swing.JTextField();
         comboBoxTeacher = new javax.swing.JComboBox<>();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ADD ANNUAL REVIEW");

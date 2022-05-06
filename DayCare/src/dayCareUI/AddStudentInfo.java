@@ -65,6 +65,8 @@ public class AddStudentInfo extends javax.swing.JPanel {
         jTFID = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         lbName.setText("Name :");
 
         lbDataOfBirth.setText("Date of Birth :");

@@ -97,6 +97,8 @@ public class PendingImmunitization extends javax.swing.JPanel {
         jTblPendingStudents = new javax.swing.JTable();
         jbtnVaccine = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("List of Students Pending with their Vaccine Immunitization");
 

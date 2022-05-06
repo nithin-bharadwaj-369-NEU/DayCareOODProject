@@ -61,6 +61,8 @@ public class addTeacher extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ADD TEACHER DETAILS");

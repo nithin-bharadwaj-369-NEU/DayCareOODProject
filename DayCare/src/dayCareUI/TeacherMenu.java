@@ -35,6 +35,8 @@ public class TeacherMenu extends javax.swing.JPanel {
         btnPendingImmStudents = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        jPanel1.setBackground(new java.awt.Color(56, 118, 208));
+
         btnAddAnnualReview.setText("Add Annual Review");
         btnAddAnnualReview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,8 @@ public class TeacherMenu extends javax.swing.JPanel {
         );
 
         teacherSplitPane.setLeftComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

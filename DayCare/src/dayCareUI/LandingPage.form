@@ -40,7 +40,7 @@
         <Container class="javax.swing.JPanel" name="menuPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="ff" red="cc" type="rgb"/>
+              <Color blue="d0" green="76" red="38" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -56,8 +56,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnStudent" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnTeacher" alignment="1" pref="80" max="32767" attributes="0"/>
-                          <Component id="btnSummary" alignment="1" pref="80" max="32767" attributes="0"/>
+                          <Component id="btnTeacher" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnSummary" alignment="1" pref="0" max="32767" attributes="0"/>
                           <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

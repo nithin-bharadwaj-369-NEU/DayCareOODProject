@@ -63,6 +63,8 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
         Vvaccine2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("UPDATE VACCINE INFO");

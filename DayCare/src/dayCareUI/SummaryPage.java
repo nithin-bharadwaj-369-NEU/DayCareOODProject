@@ -74,6 +74,8 @@ public class SummaryPage extends javax.swing.JPanel {
         tblSummary = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         tblSummary.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},

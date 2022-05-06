@@ -73,6 +73,8 @@ public class ViewStudent extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVaccineInfo = new javax.swing.JTable();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

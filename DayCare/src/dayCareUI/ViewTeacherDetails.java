@@ -52,6 +52,8 @@ public class ViewTeacherDetails extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTeacher = new javax.swing.JTable();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VIEW TEACHER DETAILS");
