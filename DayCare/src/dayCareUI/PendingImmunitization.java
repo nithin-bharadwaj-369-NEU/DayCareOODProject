@@ -45,7 +45,8 @@ public class PendingImmunitization extends javax.swing.JPanel {
     public void populateTable(List<Student> stdList) {
         DefaultTableModel dtm = (DefaultTableModel) jTblPendingStudents.getModel();
         dtm.setRowCount(0);
-        for(Student pk : stdList){
+        if(stdList != null){
+            for(Student pk : stdList){
             String varicella1Status = "Done";
             if(pk.getVaricella1stDose() == null){
                 varicella1Status = "Pending";
@@ -76,7 +77,9 @@ public class PendingImmunitization extends javax.swing.JPanel {
                 dtm.addRow(row);
             }
             
+            }
         }
+        
     }
 
     /**
